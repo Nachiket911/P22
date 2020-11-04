@@ -33,7 +33,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.3, isStatic:true});
 	World.add(world, packageBody);	
 
 	//Create a Ground
@@ -54,7 +54,7 @@ function draw() {
   packageSprite.x= packageBody.position.x ;
   packageSprite.y= packageBody.position.y ;
 
-  keyPressed()	
+  //keyPressed()	
 
   drawSprites();
  
@@ -62,9 +62,9 @@ function draw() {
 
 function keyPressed() {
 
- if (keyDown("DOWN ARROW")) {
+ if (keyCode == DOWN_ARROW) {
 
-    packageBody.isStatic = false;
+    Body.setStatic(packageBody,false);
     
   }
 
